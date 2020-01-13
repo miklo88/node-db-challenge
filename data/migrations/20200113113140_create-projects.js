@@ -1,8 +1,8 @@
-exports.up = async function(knex) {
+exports.up = async knex => {
   await knex.schema.createTable("Projects", tbl => {
     tbl.increments().primary();
     tbl
-      .text("Name", 64)
+      .text("Name", 100)
       .unique()
       .notNullable();
     tbl.text("Description");
@@ -14,7 +14,7 @@ exports.up = async function(knex) {
   await knex.schema.createTable("Resources", tbl => {
     tbl.increments().primary();
     tbl
-      .text("Name", 64)
+      .text("Name", 100)
       .unique()
       .notNullable();
     tbl.text("Description");
@@ -54,7 +54,7 @@ exports.up = async function(knex) {
   });
 };
 
-exports.down = async function(knex) {
+exports.down = async knex => {
   await knex.schema.dropTableIfExists("Projects_Resources");
   await knex.schema.dropTableIfExists("Tasks");
   await knex.schema.dropTableIfExists("Resources");
