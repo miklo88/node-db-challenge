@@ -99,12 +99,12 @@ server.post("/tasks", async (req, res) => {
   }
 });
 // // GET PROJECT BY ID ////// STILL NEED TO COMPLETE
-// server.get("/projects/:id", async (req, res) => {
-//   try {
-//     res.json(project);
-//   } catch (err) {
-//     res.status(500).json({ message: "Server error." });
-//   }
-// });
+server.get("/projects/:id", async (req, res) => {
+  try {
+    res.json(project);
+  } catch (err) {
+    res.status(500).json({ message: "Server error." });
+  }
+});
 
 module.exports = server;
