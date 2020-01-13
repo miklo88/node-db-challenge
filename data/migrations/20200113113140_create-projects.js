@@ -12,6 +12,7 @@ exports.up = function(knex) {
 
     .createTable("resources", table => {
       table.increments("id");
+      //   foreign key
       table
         .integer("project_id")
         .notNullable()
