@@ -19,7 +19,6 @@ server.get("/projects", async (req, res) => {
           id: proj.id,
           Name: proj.Name,
           Description: proj.Description,
-          // in sqlite booleans have no data type and are stored as integers. 0=false 1=true.
           Completed: `${proj.Completed === 1 ? "true" : "false"}`
         };
       })
@@ -100,12 +99,12 @@ server.post("/tasks", async (req, res) => {
   }
 });
 // // GET PROJECT BY ID ////// STILL NEED TO COMPLETE
-server.get("/projects/:id", async (req, res) => {
-  try {
-    res.json(project);
-  } catch (err) {
-    res.status(500).json({ message: "Server error." });
-  }
-});
+// server.get("/projects/:id", async (req, res) => {
+//   try {
+//     res.json(project);
+//   } catch (err) {
+//     res.status(500).json({ message: "Server error." });
+//   }
+// });
 
 module.exports = server;

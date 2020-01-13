@@ -2,7 +2,7 @@ exports.up = async knex => {
   await knex.schema.createTable("Projects", tbl => {
     tbl.increments().primary();
     tbl
-      .text("Name", 100)
+      .text("Name")
       .unique()
       .notNullable();
     tbl.text("Description");
