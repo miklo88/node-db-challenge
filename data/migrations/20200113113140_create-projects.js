@@ -1,58 +1,62 @@
-exports.up = async knex => {
-  await knex.schema.createTable("projects", table => {
-    table.increments("id");
-    table
-      .text("name")
+exports.up = async function(knex) {
+  await knex.schema.createTable("Projects", tbl => {
+    tbl.increments().primary();
+    tbl
+      .text("Name", 64)
       .unique()
       .notNullable();
-    table.text("description").notNullable();
-    table.boolean("completed").defaultTo("false");
+    tbl.text("Description");
+    tbl
+      .boolean("Completed")
+      .notNullable()
+      .defaultTo(false);
   });
-
-  await knex.schema.createTable("resources", table => {
-    table.increments("id");
-    //   foreign key
-    table
-      .integer("project_id")
+  await knex.schema.createTable("Resources", tbl => {
+    tbl.increments().primary();
+    tbl
+      .text("Name", 64)
+      .unique()
+      .notNullable();
+    tbl.text("Description");
+  });
+  await knex.schema.createTable("Tasks", tbl => {
+    tbl.increments().primary();
+    tbl.text("Description").notNullable();
+    tbl.text("Notes");
+    tbl
+      .boolean("Completed")
+      .notNullable()
+      .defaultTo(false);
+    tbl
+      .integer("Project_Id")
       .notNullable()
       .references("id")
-      .inTable("projects")
+      .inTable("Projects")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
-    table.text("description").notNullable();
-    table.text("notes").notNullable();
-    table.boolean("completed").defaultTo("false");
   });
-
-  await knex.schema.createTable("tasks", table => {
-    table.increments("id");
-    table.string("task_description");
-    table.string("notes");
-    table
-      .boolean("completed")
-      .defaultTo(false)
-      .notNullable();
-  });
-
-  await knex.schema.createTable("projects_tasks", table => {
-    table
-      .integer("project_id")
+  await knex.schema.createTable("Projects_Resources", tbl => {
+    tbl
+      .integer("Project_Id")
       .notNullable()
       .references("id")
-      .inTable("projects");
-    table
-      .integer("task_id")
+      .inTable("Projects")
+      .onUpdate("CASCADE")
+      .onDelete("CASCADE");
+    tbl
+      .integer("Resource_Id")
       .notNullable()
       .references("id")
-      .inTable("task");
-    table.primary(["project_id", "task_id"]);
+      .inTable("Resources")
+      .onUpdate("CASCADE")
+      .onDelete("CASCADE");
+    tbl.primary(["Project_Id", "Resource_Id"]);
   });
 };
 
-exports.down = async knex => {
-  await knex.schema
-    .dropTableIfExists("projects_tasks")
-    .dropTableIfExists("tasks")
-    .dropTableIfExists("resources")
-    .dropTableIfExists("projects");
+exports.down = async function(knex) {
+  await knex.schema.dropTableIfExists("Projects_Resources");
+  await knex.schema.dropTableIfExists("Tasks");
+  await knex.schema.dropTableIfExists("Resources");
+  await knex.schema.dropTableIfExists("Projects");
 };
