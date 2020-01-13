@@ -16,19 +16,19 @@ The Minimum Viable Product must be completed in three hours.
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your _Team Lead_ as collaborator on Github.
-- [ ] Clone your forked version of the Repository.
-- [ ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
-- [ ] Implement the project on this Branch, committing changes regularly.
-- [ ] Push commits: git push origin `firstName-lastName`.
+- [x] Create a forked copy of this project.
+- [x] Add your _Team Lead_ as collaborator on Github.
+- [x] Clone your forked version of the Repository.
+- [x] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
+- [x] Implement the project on this Branch, committing changes regularly.
+- [x] Push commits: git push origin `firstName-lastName`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge `firstName-lastName` Branch into master on **your fork, don't make Pull Requests against Lambda's repository**.
-- [ ] Please don't merge your own pull request.
-- [ ] Add your _Team Lead_ as a Reviewer on the Pull-request
-- [ ] Your _Team Lead_ will count the challenge as done by merging the branch into _master_.
+- [x] Submit a Pull-Request to merge `firstName-lastName` Branch into master on **your fork, don't make Pull Requests against Lambda's repository**.
+- [x] Please don't merge your own pull request.
+- [x] Add your _Team Lead_ as a Reviewer on the Pull-request
+- [x] Your _Team Lead_ will count the challenge as done by merging the branch into _master_.
 
 ## Commits
 
@@ -38,13 +38,35 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain the difference between `Relational Databases` and `SQL`.
+- [x] Explain the difference between `Relational Databases` and `SQL`.
+      A) ANSWER
+      1a) `Relational Databases` - the oldesst and most common type of database in use today. In relational databases, the data is stored in tabular format grouped into rows and columns (similar to spreadsheets). A collection of rows is called a table. Each row represents a single record in the table and is made up of one or more columns.
+- Lambda Training Kit
 
-- [ ] Why do tables need a `primary key`?
+1b) `SQL` - Structured Query Language is the standard language used to manage databases and the data within them. It is the de factor way to interact with a datbase. SQL is optimized for the sole purpose of querying data. This means not only optimization in writing queries, but optimizationn in terms of retrieving data, which is critical in the modern world of big data.
 
-- [ ] What is the name given to a table column that references the primary key on another table.
+- Lambda Training Kit
 
-- [ ] What do we need in order to have a _many to many_ relationship between two tables.
+Relational Databases is complimented with management of its data by Structured Query Language. SQL.
+-me :)
+
+- [x] Why do tables need a `primary key`?
+      A) ANSWER
+      A primary key is a way to identify each entry in the database uniquely. The vehicle for all the information. Mostly used as id or [tablename]Id.
+- Lambda Training Kit
+
+- [x] What is the name given to a table column that references the primary key on another table.
+      A) ANSWER
+      Foreign Key - Foreign keys are a type of table field used for creating links between tables. Like prmary keys, they are most often integers that identify data. primary key is used to id rows in a table. Foreign keys are used to connect a record in one table to a record in a second table
+- Lambda Training Kit
+
+- [x] What do we need in order to have a _many to many_ relationship between two tables.
+      A) ANSWER
+      A couple examples from Training Kit.
+- an order can have many prodects and the same product will appear in many orders.
+- a book can have more than one author, and an author can have more than one book.
+  My example :)
+- a sandwhich can have lettuce and lettuce can be used on many different sandwhiches.
 
 ## Minimum Viable Product
 
