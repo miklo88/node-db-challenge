@@ -19,6 +19,7 @@ server.get("/projects", async (req, res) => {
           id: proj.id,
           Name: proj.Name,
           Description: proj.Description,
+          // in sqlite booleans have no data type and are stored as integers. 0=false 1=true.
           Completed: `${proj.Completed === 1 ? "true" : "false"}`
         };
       })

@@ -1,6 +1,6 @@
-// exports.seed = async (knex) => {
-//   // Deletes ALL existing entries
-//   await knex('Projects').insert([
-
-//       ]);
-//     });
+exports.seed = async knex => {
+  await knex("Projects").insert([
+    { name: "Project One", description: "description text" },
+    { name: "Project Two", description: "description text" }
+  ]);
+};
