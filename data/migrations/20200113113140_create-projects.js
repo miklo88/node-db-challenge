@@ -32,6 +32,20 @@ exports.up = function(knex) {
         .boolean("completed")
         .defaultTo(false)
         .notNullable();
+    })
+
+    .createTable("projects_tasks", table => {
+      table
+        .integer("project_id")
+        .notNullable()
+        .references("id")
+        .inTable("projects");
+      table
+        .integer("task_id")
+        .notNullable()
+        .references("id")
+        .inTable("task");
+      table.primary(["project_id", "task_id"]);
     });
 };
 
