@@ -98,6 +98,7 @@ server.post("/tasks", async (req, res) => {
     res.status(500).json({ message: "ay dio mio" });
   }
 });
+
 // // GET PROJECT BY ID ////// STILL NEED TO COMPLETE
 server.get("/projects/:id", async (req, res) => {
   try {
