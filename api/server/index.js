@@ -81,18 +81,18 @@ server.get("/tasks", async (req, res) => {
   }
 });
 
-// POST TASK
+// POST TASK ////// STILL NEED TO DBUG
 server.post("/tasks", async (req, res) => {
-  if (!req.body.Description) {
-    res.status(400).json({
-      message: "Task description."
-    });
-  } else if (!req.body.Project_id) {
-    res.status(400).json({
-      message: "Project id."
-    });
-  }
   try {
+    if (!req.body.Description) {
+      res.status(400).json({
+        message: "Task description."
+      });
+    } else if (!req.body.Project_id) {
+      res.status(400).json({
+        message: "Project id."
+      });
+    }
     res.status(201).json(await db("Tasks").insert(req.body));
   } catch (err) {
     res.status(500).json({ message: "ay dio mio" });
