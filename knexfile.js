@@ -13,6 +13,7 @@ module.exports = {
     seeds: {
       directory: "./data/seeds"
     },
+    // use this for foreign keys. standard?
     pool: {
       afterCreate: (conn, done) => {
         // runs after a connection is made to the sqlite engine
