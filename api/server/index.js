@@ -83,13 +83,13 @@ server.get("/tasks", async (req, res) => {
 
 // POST TASK
 server.post("/tasks", async (req, res) => {
-  if (!req.body.description) {
+  if (!req.body.Description) {
     res.status(400).json({
       message: "Task description."
     });
-  } else if (!req.body.project_id) {
+  } else if (!req.body.Project_id) {
     res.status(400).json({
-      message: "Project id task."
+      message: "Project id."
     });
   }
   try {
